@@ -7,89 +7,90 @@
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-slate-900 text-slate-100 font-sans antialiased min-h-screen flex flex-col justify-between">
+<body class="bg-slate-50 text-slate-800 font-sans antialiased min-h-screen flex flex-col justify-between selection:bg-indigo-500 selection:text-white">
 
     <!-- Header / Navbar -->
-    <header class="border-b border-slate-800 bg-slate-900/80 backdrop-blur sticky top-0 z-50">
+    <header class="border-b border-slate-200 bg-white/80 backdrop-blur sticky top-0 z-50 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
             <div class="flex items-center space-x-3 cursor-pointer" onclick="showHome()">
-                <div class="bg-indigo-600 p-2 rounded-xl font-bold text-white tracking-wider text-lg shadow-lg shadow-indigo-500/30">TM</div>
-                <span class="text-xl font-extrabold tracking-tight text-white">Task<span class="text-indigo-500">Map</span></span>
+                <div class="bg-indigo-600 p-2 rounded-xl font-bold text-white tracking-wider text-lg shadow-lg shadow-indigo-600/20">TM</div>
+                <span class="text-xl font-extrabold tracking-tight text-slate-900">Task<span class="text-indigo-600">Map</span></span>
             </div>
-            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-300">
-                <a href="#" onclick="showHome()" class="hover:text-indigo-400 transition">Ana Sayfa</a>
-                <a href="#" class="hover:text-indigo-400 transition">Özellikler</a>
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-600">
+                <button onclick="showHome()" class="hover:text-indigo-600 transition cursor-pointer">Ana Sayfa</button>
+                <a href="#" class="hover:text-indigo-600 transition">Özellikler</a>
+                <a href="#" class="hover:text-indigo-600 transition">Fiyatlandırma</a>
             </nav>
             <div class="flex items-center space-x-4">
-                <button onclick="showLogin()" class="text-sm font-medium text-slate-300 hover:text-white transition">Giriş Yap</button>
-                <button onclick="showLogin()" class="bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-semibold px-4 py-2 rounded-xl transition shadow-lg shadow-indigo-600/20">Ücretsiz Başla</button>
+                <button onclick="showLogin()" class="text-sm font-medium text-slate-600 hover:text-slate-900 transition cursor-pointer">Giriş Yap</button>
+                <button onclick="showLogin()" class="bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-semibold px-4 py-2 rounded-xl transition shadow-lg shadow-indigo-600/20 cursor-pointer">Ücretsiz Başla</button>
             </div>
         </div>
     </header>
 
-    <!-- Main Content Area (Dynamic Switcher) -->
+    <!-- Main Content Area -->
     <main class="flex-grow flex items-center justify-center px-4 sm:px-6 lg:px-8 py-16">
         
         <!-- ANA SAYFA GÖRÜNÜMÜ -->
-        <div id="homeView" class="max-w-4xl mx-auto text-center space-y-8">
-            <div class="inline-flex items-center space-x-2 bg-indigo-950/80 border border-indigo-800/50 px-3 py-1 rounded-full text-indigo-400 text-xs font-semibold tracking-wide uppercase">
-                <span class="w-2 h-2 rounded-full bg-indigo-500 animate-pulse"></span>
+        <div id="homeView" class="max-w-4xl mx-auto text-center space-y-8 transition-all duration-300">
+            <div class="inline-flex items-center space-x-2 bg-indigo-50 border border-indigo-100 px-3 py-1 rounded-full text-indigo-600 text-xs font-semibold tracking-wide uppercase">
+                <span class="w-2 h-2 rounded-full bg-indigo-600 animate-pulse"></span>
                 <span>Yeni Nesil SaaS Platformu</span>
             </div>
             
-            <h1 class="text-4xl sm:text-6xl font-black tracking-tight text-white leading-tight">
-                Projelerinizi ve Görevlerinizi <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-violet-500">Haritalandırın</span>
+            <h1 class="text-4xl sm:text-6xl font-black tracking-tight text-slate-900 leading-tight">
+                Projelerinizi ve Görevlerinizi <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-violet-600">Haritalandırın</span>
             </h1>
             
-            <p class="text-lg sm:text-xl text-slate-400 max-w-2xl mx-auto">
+            <p class="text-lg sm:text-xl text-slate-600 max-w-2xl mx-auto">
                 Ekibinizin iş akışını optimize edin, projeleri anlık takip edin ve verimliliği en üst düzeye çıkarın. Hepsi tek bir modern platformda.
             </p>
             
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-                <button onclick="showLogin()" class="w-full sm:w-auto bg-indigo-600 hover:bg-indigo-500 text-white font-semibold px-8 py-3.5 rounded-xl transition shadow-xl shadow-indigo-600/30 text-center">
+                <button onclick="showLogin()" class="w-full sm:w-auto bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-8 py-3.5 rounded-xl transition shadow-xl shadow-indigo-600/20 text-center cursor-pointer">
                     Hemen Keşfet
                 </button>
-                <button onclick="showLogin()" class="w-full sm:w-auto bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold px-8 py-3.5 rounded-xl transition border border-slate-700 text-center">
+                <button onclick="showLogin()" class="w-full sm:w-auto bg-white hover:bg-slate-100 text-slate-700 font-semibold px-8 py-3.5 rounded-xl transition border border-slate-200 text-center cursor-pointer shadow-sm">
                     Giriş Yap
                 </button>
             </div>
         </div>
 
         <!-- GİRİŞ EKRANI GÖRÜNÜMÜ (Başlangıçta gizli) -->
-        <div id="loginView" class="hidden max-w-md w-full bg-slate-800/50 border border-slate-700/50 p-8 rounded-2xl shadow-2xl backdrop-blur space-y-6">
+        <div id="loginView" class="hidden max-w-md w-full bg-white border border-slate-200 p-8 rounded-2xl shadow-xl space-y-6 transition-all duration-300">
             <div class="text-center space-y-2">
-                <h1 class="text-2xl sm:text-3xl font-black tracking-tight text-white">Tekrar Hoş Geldiniz</h1>
-                <p class="text-sm text-slate-400">TaskMap hesabınıza giriş yapın</p>
+                <h1 class="text-2xl sm:text-3xl font-black tracking-tight text-slate-900">Tekrar Hoş Geldiniz</h1>
+                <p class="text-sm text-slate-500">TaskMap hesabınıza giriş yapın</p>
             </div>
 
-            <form onsubmit="event.preventDefault(); alert('Giriş simüle edildi!');" class="space-y-4">
+            <form onsubmit="event.preventDefault(); alert('Giriş yapıldı!');" class="space-y-4">
                 <div>
-                    <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1.5">E-posta Adresi</label>
-                    <input type="email" required class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-slate-100 placeholder-slate-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition" placeholder="ornek@mail.com">
+                    <label class="block text-xs font-semibold uppercase tracking-wider text-slate-600 mb-1.5">E-posta Adresi</label>
+                    <input type="email" required class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-indigo-600 focus:ring-1 focus:ring-indigo-600 transition" placeholder="ornek@mail.com">
                 </div>
 
                 <div>
                     <div class="flex items-center justify-between mb-1.5">
-                        <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400">Şifre</label>
-                        <a href="#" class="text-xs text-indigo-400 hover:underline">Şifremi Unuttum?</a>
+                        <label class="block text-xs font-semibold uppercase tracking-wider text-slate-600">Şifre</label>
+                        <a href="#" class="text-xs text-indigo-600 hover:underline">Şifremi Unuttum?</a>
                     </div>
-                    <input type="password" required class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-slate-100 placeholder-slate-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition" placeholder="••••••••">
+                    <input type="password" required class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-indigo-600 focus:ring-1 focus:ring-indigo-600 transition" placeholder="••••••••">
                 </div>
 
-                <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-semibold py-3.5 rounded-xl transition shadow-lg shadow-indigo-600/30 text-center mt-2">
+                <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3.5 rounded-xl transition shadow-lg shadow-indigo-600/20 text-center mt-2 cursor-pointer">
                     Giriş Yap
                 </button>
             </form>
 
             <div class="text-center text-xs text-slate-500">
-                Ana sayfaya dönmek mi istiyorsun? <button onclick="showHome()" class="text-indigo-400 font-medium hover:underline">Tıkla</button>
+                Ana sayfaya dönmek mi istiyorsun? <button onclick="showHome()" class="text-indigo-600 font-medium hover:underline cursor-pointer">Tıkla</button>
             </div>
         </div>
 
     </main>
 
     <!-- Footer -->
-    <footer class="border-t border-slate-800 py-6 text-center text-xs text-slate-500">
+    <footer class="border-t border-slate-200 bg-white py-6 text-center text-xs text-slate-400">
         <p>&copy; 2026 TaskMap. Tüm hakları saklıdır.</p>
     </footer>
 
