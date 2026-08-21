@@ -2,96 +2,117 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <title>TaskMap - Kurumsal İş ve Proje Yönetim Sistemi</title>
+    <title>TaskMap - Kurumsal İş ve Proje Takip Sistemi</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        body { background-color: #ffffff; color: #222222; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: Tahoma, Arial, sans-serif; }
+        body { background-color: #f0f2f5; color: #333; }
 
-        /* Akınsoft Tarzı Üst Mavi Şerit ve Header */
-        .top-bar { background: #004080; color: #ffffff; font-size: 12px; padding: 6px 10%; display: flex; justify-content: space-between; align-items: center; }
+        /* En Üst Akınsoft Mavi Bilgi Şeridi */
+        .ak-topbar { background: #003366; color: #fff; font-size: 11px; padding: 5px 15px; display: flex; justify-content: space-between; border-bottom: 1px solid #002244; }
         
+        /* Ana Header */
         header { 
             display: flex; justify-content: space-between; align-items: center; 
-            padding: 15px 10%; background: #ffffff; border-bottom: 3px solid #0056b3; 
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08); position: sticky; top: 0; z-index: 1000;
+            padding: 10px 15px; background: #ffffff; border-bottom: 2px solid #004080;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
         }
+        .logo-area { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+        .logo-area img { height: 40px; max-width: 160px; object-fit: contain; }
         
-        .logo-area { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-        .logo-area img { height: 45px; max-width: 180px; object-fit: contain; }
-        .logo-text { font-size: 22px; font-weight: 800; color: #004080; letter-spacing: -0.5px; }
+        /* Klasik Menü Çubuğu */
+        .main-nav { display: flex; background: #004080; padding: 0 15px; }
+        .main-nav a { color: #ffffff; text-decoration: none; padding: 10px 15px; font-size: 13px; font-weight: bold; border-right: 1px solid #003366; display: inline-block; }
+        .main-nav a:hover { background: #0059b3; }
 
-        nav { display: flex; gap: 20px; align-items: center; }
-        nav a { text-decoration: none; color: #333333; font-weight: 600; font-size: 14px; padding: 5px 10px; transition: 0.2s; }
-        nav a:hover { color: #0056b3; background: #f0f4f8; border-radius: 4px; }
+        /* İçerik ve Task Pano Alanı */
+        .container { padding: 20px 15px; display: flex; gap: 20px; }
+        
+        .welcome-box { flex: 2; background: #fff; border: 1px solid #ccc; padding: 20px; border-top: 3px solid #004080; }
+        .welcome-box h2 { color: #004080; font-size: 20px; margin-bottom: 10px; }
+        .welcome-box p { font-size: 13px; line-height: 1.5; color: #555; margin-bottom: 15px; }
 
-        .auth-group { display: flex; gap: 10px; align-items: center; }
-        .btn { padding: 8px 18px; border-radius: 4px; text-decoration: none; font-weight: 600; font-size: 14px; }
-        .btn-light { border: 1px solid #0056b3; color: #0056b3; background: #fff; }
-        .btn-light:hover { background: #f0f4f8; }
-        .btn-primary { background: #0056b3; color: #fff; }
-        .btn-primary:hover { background: #004080; }
-
-        /* Ana İçerik / Hero */
-        .hero { display: flex; justify-content: space-between; align-items: center; padding: 60px 10%; background: #f8f9fa; border-bottom: 1px solid #dee2e6; }
-        .hero-left { max-width: 600px; }
-        .hero-left h1 { font-size: 36px; color: #004080; font-weight: 700; margin-bottom: 15px; line-height: 1.2; }
-        .hero-left p { font-size: 16px; color: #555555; line-height: 1.5; margin-bottom: 25px; }
-
-        /* Sağ Panel */
-        .hero-box { background: #fff; border: 1px solid #ccc; border-top: 4px solid #0056b3; width: 380px; padding: 20px; border-radius: 4px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
-        .hero-box h3 { font-size: 15px; color: #004080; margin-bottom: 12px; border-bottom: 1px solid #eee; padding-bottom: 6px; }
-        .box-row { display: flex; justify-content: space-between; font-size: 13px; padding: 6px 0; border-bottom: 1px dashed #eee; color: #444; }
+        /* Task Pano Tablosu (Akınsoft Modül Listesi Tarzı) */
+        .task-panel { flex: 1.5; background: #fff; border: 1px solid #ccc; border-top: 3px solid #004080; padding: 15px; }
+        .task-panel h3 { font-size: 14px; background: #eef2f7; padding: 8px; color: #004080; margin-bottom: 10px; border: 1px solid #dcdcdc; }
+        
+        .task-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+        .task-table th, .task-table td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        .task-table th { background: #f4f6f9; color: #333; }
+        
+        .status-wait { color: #b36b00; font-weight: bold; background: #fff8e6; padding: 2px 5px; border-radius: 2px; }
+        .status-done { color: #007700; font-weight: bold; background: #e6f7e6; padding: 2px 5px; border-radius: 2px; }
 
         /* Footer */
-        footer { background: #002b5c; color: #ffffff; padding: 20px 10%; text-align: center; font-size: 13px; }
+        footer { background: #002244; color: #adc4e0; padding: 12px 15px; text-align: center; font-size: 11px; margin-top: 30px; }
     </style>
 </head>
 <body>
 
-    <!-- Akınsoft Tarzı Üst Bilgi Şeridi -->
-    <div class="top-bar">
-        <span>Teknomap Bilgisayar | Kurumsal Çözüm Ortağınız</span>
-        <span>Destek Hattı: 0216 000 00 00</span>
+    <!-- Üst Bilgi Barı -->
+    <div class="ak-topbar">
+        <span>TEKNOMAP BİLGİSAYAR - Yazılım Çözümleri</span>
+        <span>Sistem Saati: Aktif | Kullanıcı: Yönetici</span>
     </div>
 
-    <!-- Header -->
+    <!-- Header & Logo -->
     <header>
         <a href="/" class="logo-area">
-            <!-- Logo görseli static klasöründen çekilecek -->
-            <img src="{{ url_for('static', filename='logo.png') }}" alt="TaskMap Logo" onerror="this.style.display='none'; document.getElementById('fallback-logo').style.display='inline-block';">
-            <span id="fallback-logo" class="logo-text" style="display:none;">TaskMap</span>
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="TaskMap Logo" onerror="this.onerror=null; this.src='https://via.placeholder.com/150x40?text=TaskMap';">
         </a>
-        <nav>
-            <a href="/">Anasayfa</a>
-            <a href="#">Ürünler</a>
-            <a href="#">Çözümler</a>
-            <a href="#">Bayilik</a>
-            <a href="#">İletişim</a>
-        </nav>
-        <div class="auth-group">
-            <a href="/login" class="btn btn-light">Giriş Yap</a>
-            <a href="/register" class="btn btn-primary">Ücretsiz Dene</a>
+        <div style="font-size: 14px; font-weight: bold; color: #004080;">
+            TaskMap Kurumsal Proje ve Görev Takip Yazılımı
         </div>
     </header>
 
-    <!-- Hero Alanı -->
-    <section class="hero">
-        <div class="hero-left">
-            <h1>İş Süreçlerinizi ve Projelerinizi Tek Merkezden Yönetin</h1>
-            <p>TaskMap, işletmenizin tüm iş akışlarını, randevularını ve operasyonel görevlerini hatasız takip etmenizi sağlayan profesyonel kurumsal yönetim yazılımıdır.</p>
-            <a href="/register" class="btn btn-primary" style="padding: 10px 24px; font-size: 15px;">Hemen Başvurun</a>
+    <!-- Klasik Yatay Menü -->
+    <div class="main-nav">
+        <a href="/">Anasayfa</a>
+        <a href="/login">Kullanıcı Girişi</a>
+        <a href="/register">Yeni Kayıt / Lisans</a>
+        <a href="#">Modüller</a>
+        <a href="#">Raporlar</a>
+        <a href="#">Ayarlar</a>
+    </div>
+
+    <!-- Ana Panel İçeriği -->
+    <div class="container">
+        
+        <!-- Sol Karşılama Alanı -->
+        <div class="welcome-box">
+            <h2>TaskMap'e Hoş Geldiniz</h2>
+            <p>İşletmenizin tüm süreçlerini, görev dağılımlarını ve müşteri randevularını tek bir merkezden, hatasız ve hızlı bir şekilde yönetin.</p>
+            <p>Akınsoft altyapısı esintisiyle tasarlanmış bu sistem; modüler yapısı sayesinde şirket içi verimliliğinizi en üst düzeye çıkarır.</p>
+            <a href="/login" style="display:inline-block; padding:8px 15px; background:#004080; color:#fff; text-decoration:none; font-size:13px; font-weight:bold; border-radius:2px;">Panele Giriş Yap</a>
         </div>
-        <div class="hero-box">
-            <h3>Sistem Operasyon Durumu</h3>
-            <div class="box-row"><span>Modül Durumu:</span> <strong style="color:green;">Aktif (V1.0)</strong></div>
-            <div class="box-row"><span>Bulut Yedekleme:</span> <strong>Devrede</strong></div>
-            <div class="box-row"><span>Lisans Türü:</span> <span style="color:#0056b3; font-weight:bold;">Kurumsal Sürüm</span></div>
+
+        <!-- Sağ Taraf: Task Pano Listesi -->
+        <div class="task-panel">
+            <h3>Güncel Görev ve İş Panosu</h3>
+            <table class="task-table">
+                <tr>
+                    <th>Görev Adı</th>
+                    <th>Durum</th>
+                </tr>
+                <tr>
+                    <td>Yazılım Güncelleme ve Yedekleme</td>
+                    <td><span class="status-wait">Beklemede</span></td>
+                </tr>
+                <tr>
+                    <td>Müşteri Randevu Planlaması</td>
+                    <td><span class="status-done">Tamamlandı</span></td>
+                </tr>
+                <tr>
+                    <td>Ağ Altyapı Kontrolü</td>
+                    <td><span class="status-done">Tamamlandı</span></td>
+                </tr>
+            </table>
         </div>
-    </section>
+
+    </div>
 
     <!-- Footer -->
     <footer>
-        <p>Copyright &copy; 2005 – 2026 <strong>TEKNOMAP BİLGİSAYAR</strong>. Tüm hakları saklıdır.</p>
+        Copyright &copy; 2005 – 2026 <strong>TEKNOMAP BİLGİSAYAR</strong>. Tüm hakları saklıdır.
     </footer>
 
 </body>
