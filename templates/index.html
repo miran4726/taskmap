@@ -45,12 +45,12 @@
         .steps-section { padding: 60px 8%; text-align: center; background: #ffffff; }
         .steps-section h2 { font-size: 26px; color: #0f172a; margin-bottom: 40px; }
         .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; text-align: left; }
-        .step-box { background: #f8fafc; padding: 30px; border-radius: 10px; border: 1px solid #e2e8f0; position: relative; }
+        .step-box { background: #f8fafc; padding: 30px; border-radius: 10px; border: 1px solid #e2e8f0; }
         .step-icon { width: 45px; height: 45px; background: #004080; color: #fff; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 18px; margin-bottom: 15px; }
         .step-box h3 { font-size: 17px; color: #0f172a; margin-bottom: 8px; }
         .step-box p { font-size: 13px; color: #64748b; line-height: 1.5; }
 
-        /* Kapsamlı Özellikler Grid Bölümü */
+        /* Özellikler Grid Bölümü (Gelen Görseldeki Tam Metinlerle) */
         .features-section { padding: 70px 8%; background: #f0f4f8; text-align: center; }
         .features-section h2 { font-size: 26px; color: #0f172a; margin-bottom: 40px; }
         .feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; text-align: left; }
@@ -59,13 +59,20 @@
         .feature-card h4 { font-size: 16px; color: #0f172a; margin-bottom: 8px; }
         .feature-card p { font-size: 13px; color: #64748b; line-height: 1.5; }
 
-        /* Mobil Uygulama Tanıtım Alanı (Ekran Görüntüsündeki Gibi) */
-        .mobile-banner { padding: 60px 8%; background: #ffffff; display: flex; align-items: center; justify-content: space-between; gap: 40px; border-top: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0; }
+        /* Yeni Eklenen: Hızlı ve Kolay Proje Takibi Bölümü */
+        .efficiency-section { padding: 70px 8%; background: #eef2f7; text-align: center; border-top: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0; }
+        .efficiency-section h2 { font-size: 26px; color: #0f172a; margin-bottom: 40px; }
+        .efficiency-showcase { display: flex; justify-content: center; align-items: center; gap: 30px; flex-wrap: wrap; margin-bottom: 40px; }
+        .analiz-badge { background: #dc2626; color: #fff; padding: 8px 16px; border-radius: 20px; font-weight: bold; font-size: 14px; display: inline-block; margin-bottom: 15px; }
+        .chat-bubble-container { background: #fff; padding: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); max-width: 500px; text-align: left; border: 1px solid #e2e8f0; }
+        .bubble-item { background: #f8fafc; padding: 10px 14px; border-radius: 8px; margin-bottom: 8px; font-size: 13px; border: 1px solid #e2e8f0; display: flex; align-items: center; gap: 10px; }
+
+        /* Mobil Uygulama Desteği Alanı */
+        .mobile-banner { padding: 60px 8%; background: #ffffff; display: flex; align-items: center; justify-content: space-between; gap: 40px; }
         .mobile-content { max-width: 550px; }
         .mobile-content h2 { font-size: 28px; color: #0f172a; margin-bottom: 15px; }
         .mobile-content p { font-size: 15px; color: #475569; line-height: 1.6; margin-bottom: 20px; }
         .store-badges { display: flex; gap: 15px; }
-        .store-badges img { height: 40px; object-fit: contain; cursor: pointer; }
         .mobile-image-mockup { background: linear-gradient(135deg, #004080 0%, #001f3f 100%); padding: 30px; border-radius: 16px; color: #fff; text-align: center; width: 350px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
 
         /* Footer */
@@ -131,57 +138,82 @@
         <div class="steps-grid">
             <div class="step-box">
                 <div class="step-icon"><i class="fa-solid fa-user-plus"></i></div>
-                <h3>1. Üye Olun</h3>
-                <p>Saniyeler içinde hesabınızı oluşturun ve TaskMap çalışma alanına hemen adım atın.</p>
+                <h3>Üye Olun</h3>
+                <p>Saniyeler içinde hesabınızı oluşturun ve kullanmaya başlayın.</p>
             </div>
             <div class="step-box">
                 <div class="step-icon"><i class="fa-solid fa-users"></i></div>
-                <h3>2. Davet Edin</h3>
-                <p>Ekip arkadaşlarınızı sisteme davet ederek görev paylaşımını ve iletişimi hızlandırın.</p>
+                <h3>Davet Edin</h3>
+                <p>Ekip arkadaşlarınızı davet ederek görev paylaşımını hızlandırın.</p>
             </div>
             <div class="step-box">
                 <div class="step-icon"><i class="fa-solid fa-circle-check"></i></div>
-                <h3>3. Sonuçlandırın</h3>
-                <p>Tüm süreçlerinizi kolayca takip edin, projelerinizi zamanında ve hatasız tamamlayın.</p>
+                <h3>Sonuçlandırın</h3>
+                <p>Bir işi başardınız mı? Görevleri raporlayın, ilgili kişilere atayın ve verimli bir biçimde sonuçlandırın.</p>
             </div>
         </div>
     </section>
 
-    <!-- Özellikler Izgarası -->
+    <!-- Özellikler Izgarası (Gelen Görseldeki Metinler) -->
     <section class="features-section" id="features">
         <h2>Kullanımı, Benimsenmesi ve Sevilmesi Kolay Bir Araç</h2>
         <div class="feature-grid">
             <div class="feature-card">
                 <i class="fa-solid fa-columns"></i>
                 <h4>Görsel İş Akışı</h4>
-                <p>Kanban yöntemiyle iş akışınızı görsel olarak yönetin ve aşamaları kolayca takip edin.</p>
+                <p>Kanban yöntemini kullanarak iş akışınızı görsel olarak düzenleyebilir, her adımı net bir şekilde takip edebilirsiniz.</p>
             </div>
             <div class="feature-card">
                 <i class="fa-solid fa-briefcase"></i>
                 <h4>Verimli Projeler</h4>
-                <p>Ekip içi uyumu artırarak Teknomap projelerini hatasız ve hızlı bir şekilde yürütün.</p>
+                <p>Ekip üyeleriniz, projelerde sizi izleyici olarak ekleyebilir. Bu sayede, işlerin ve projelerin ilerleyişini kolayca takip edebilir, tamamlanma süreçlerini etkin bir şekilde kontrol altında tutabilirsiniz.</p>
             </div>
             <div class="feature-card">
                 <i class="fa-solid fa-eye"></i>
                 <h4>İzleyici Modu</h4>
-                <p>Tüm projelerin genel durumunu anlık olarak kontrol altında tutun ve detaylı raporlayın.</p>
+                <p>Ekip üyeleriniz, projelerde sizi izleyici olarak ekleyebilir. Bu sayede, işlerin ve projelerin ilerleyişini kolayca takip edebilir, tamamlanma süreçlerini etkin bir şekilde kontrol altında tutabilirsiniz.</p>
             </div>
             <div class="feature-card">
                 <i class="fa-solid fa-bell"></i>
                 <h4>Anlık Bildirimler</h4>
-                <p>Görev değişikliklerinden ve yeni atanan operasyonel işlerden anında haberdar olun.</p>
+                <p>TaskMap ile görevlerinizin durumu değiştiğinde anlık bildirimler alarak her gelişmelerden haberdar olabilirsiniz.</p>
             </div>
             <div class="feature-card">
                 <i class="fa-solid fa-mobile-screen-button"></i>
                 <h4>Mobil Erişim</h4>
-                <p>Dilediğiniz cihazdan ve mobil platformlardan projelere kesintisiz erişim sağlayın.</p>
+                <p>Android ve iOS uygulamaları sayesinde, mobil cihazlarınızla her yerden erişim sağlayarak takımınızla bağlantıda kalın ve işlerinizi kolayca organize edin.</p>
             </div>
             <div class="feature-card">
                 <i class="fa-solid fa-location-dot"></i>
                 <h4>Konum Etiketleri</h4>
-                <p>İşlerinize konum bilgisi ekleyerek saha operasyonlarını ve servisleri detaylandırın.</p>
+                <p>Görevlere konum etiketleri ekleyerek, çalışanlarınızın tamamlanacak iş yerlerini ve görevlerin yerlerini kolayca bulmalarını sağlayabilirsiniz.</p>
             </div>
         </div>
+    </section>
+
+    <!-- Yeni Eklenen Bölüm: Hızlı ve Kolay Proje Takibi ile Maksimum Verim -->
+    <section class="efficiency-section">
+        <h2>Hızlı ve Kolay Proje Takibi ile Maksimum Verim</h2>
+        <div class="efficiency-showcase">
+            <div class="chat-bubble-container">
+                <div class="analiz-badge">Q4 Dönem Analizi</div>
+                <p style="font-size: 13px; color: #475569; margin-bottom: 12px;">Verilerin toplanmasına ait doküman taska eklendi.</p>
+                
+                <div class="bubble-item" style="border-left: 4px solid #10b981;">
+                    <i class="fa-solid fa-check" style="color: #10b981;"></i> Raporların İncelenmesi
+                </div>
+                <div class="bubble-item" style="border-left: 4px solid #f59e0b;">
+                    <i class="fa-regular fa-clock" style="color: #f59e0b;"></i> Karşılaştırmalı Analiz
+                </div>
+                <div class="bubble-item" style="border-left: 4px solid #004080;">
+                    <i class="fa-solid fa-spinner" style="color: #004080;"></i> Sonuç Raporu Hazırlama
+                </div>
+                <div class="bubble-item" style="border-left: 4px solid #dc2626;">
+                    <i class="fa-solid fa-arrow-pointer" style="color: #dc2626;"></i> Yönetimle Paylaşım
+                </div>
+            </div>
+        </div>
+        <a href="/login" class="btn btn-solid" style="padding: 12px 30px; font-size: 15px;">Ücretsiz Başla</a>
     </section>
 
     <!-- Mobil Uygulama Desteği Alanı -->
