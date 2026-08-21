@@ -9,22 +9,22 @@ def home():
 @app.route('/login')
 def login():
     return """
-    <div style="font-family:'Inter',sans-serif; text-align:center; padding-top:120px; background:#f8fafc; color:#1e293b; height:100vh;">
-        <h2 style="font-size:28px; margin-bottom:10px; color:#0284c7;">TaskMap Giriş Paneli</h2>
-        <p style="color:#64748b;">Kullanıcı girişi modülü açılıyor...</p>
+    <div style="font-family:'Segoe UI',sans-serif; text-align:center; padding-top:100px; background:#f8f9fa; color:#333; height:100vh;">
+        <h2 style="color:#0056b3; font-size:26px; margin-bottom:10px;">TaskMap Kurumsal Giriş</h2>
+        <p style="color:#666;">Kullanıcı kimlik doğrulama modülü yükleniyor...</p>
         <br>
-        <a href="/" style="display:inline-block; padding:10px 20px; background:#0284c7; color:#fff; font-weight:600; border-radius:8px; text-decoration:none;">← Anasayfaya Dön</a>
+        <a href="/" style="display:inline-block; padding:8px 20px; background:#0056b3; color:#fff; font-weight:600; border-radius:4px; text-decoration:none;">← Anasayfaya Dön</a>
     </div>
     """
 
 @app.route('/register')
 def register():
     return """
-    <div style="font-family:'Inter',sans-serif; text-align:center; padding-top:120px; background:#f8fafc; color:#1e293b; height:100vh;">
-        <h2 style="font-size:28px; margin-bottom:10px; color:#0284c7;">TaskMap Ücretsiz Kayıt</h2>
-        <p style="color:#64748b;">Hesap oluşturma sihirbazı yükleniyor...</p>
+    <div style="font-family:'Segoe UI',sans-serif; text-align:center; padding-top:100px; background:#f8f9fa; color:#333; height:100vh;">
+        <h2 style="color:#0056b3; font-size:26px; margin-bottom:10px;">TaskMap Kurumsal Kayıt</h2>
+        <p style="color:#666;">Yeni işletme hesabı oluşturma sihirbazı açılıyor...</p>
         <br>
-        <a href="/" style="display:inline-block; padding:10px 20px; background:#0284c7; color:#fff; font-weight:600; border-radius:8px; text-decoration:none;">← Anasayfaya Dön</a>
+        <a href="/" style="display:inline-block; padding:8px 20px; background:#0056b3; color:#fff; font-weight:600; border-radius:4px; text-decoration:none;">← Anasayfaya Dön</a>
     </div>
     """
 
