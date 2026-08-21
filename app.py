@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, url_for
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
@@ -9,20 +9,22 @@ def home():
 @app.route('/login')
 def login():
     return """
-    <div style="font-family:sans-serif; text-align:center; padding-top:100px; background:#0f172a; color:#fff; height:100vh;">
-        <h2>TaskMap Güvenli Giriş Ekranı</h2>
-        <p style="color:#94a3b8; margin-top:10px;">Giriş modülü aktif ediliyor...</p>
-        <a href="/" style="display:inline-block; margin-top:20px; color:#38bdf8; text-decoration:none;">← Anasayfaya Dön</a>
+    <div style="font-family:'Plus Jakarta Sans',sans-serif; text-align:center; padding-top:120px; background:#0b0f19; color:#fff; height:100vh;">
+        <h2 style="font-size:28px; margin-bottom:10px;">Giriş Yap</h2>
+        <p style="color:#94a3b8;">TaskMap kullanıcı paneline yönlendiriliyorsunuz...</p>
+        <br>
+        <a href="/" style="display:inline-block; padding:10px 20px; background:#38bdf8; color:#0b0f19; font-weight:700; border-radius:8px; text-decoration:none;">Anasayfaya Dön</a>
     </div>
     """
 
 @app.route('/register')
 def register():
     return """
-    <div style="font-family:sans-serif; text-align:center; padding-top:100px; background:#0f172a; color:#fff; height:100vh;">
-        <h2>TaskMap Hesap Oluşturma Sihirbazı</h2>
-        <p style="color:#94a3b8; margin-top:10px;">Kayıt formu hazırlanıyor...</p>
-        <a href="/" style="display:inline-block; margin-top:20px; color:#38bdf8; text-decoration:none;">← Anasayfaya Dön</a>
+    <div style="font-family:'Plus Jakarta Sans',sans-serif; text-align:center; padding-top:120px; background:#0b0f19; color:#fff; height:100vh;">
+        <h2 style="font-size:28px; margin-bottom:10px;">Hesap Oluştur</h2>
+        <p style="color:#94a3b8;">Ücretsiz kayıt sihirbazı hazırlanıyor...</p>
+        <br>
+        <a href="/" style="display:inline-block; padding:10px 20px; background:#38bdf8; color:#0b0f19; font-weight:700; border-radius:8px; text-decoration:none;">Anasayfaya Dön</a>
     </div>
     """
 
