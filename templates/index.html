@@ -2,81 +2,145 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <title>TaskMap - Görev ve Proje Panosu</title>
+    <title>TaskPano - İş Takip ve Proje Yönetim Sistemi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: Tahoma, Arial, sans-serif; }
-        body { background-color: #eef2f7; color: #333; padding: 20px; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        body { background-color: #f4f6f9; color: #1e293b; display: flex; height: 100vh; overflow: hidden; }
 
-        /* Üst Kurumsal Başlık */
-        .top-header { display: flex; justify-content: space-between; align-items: center; background: #fff; padding: 12px 20px; border: 1px solid #cbd5e1; border-top: 4px solid #0284c7; margin-bottom: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
-        .logo-area { display: flex; align-items: center; gap: 12px; }
-        .logo-area img { height: 40px; object-fit: contain; }
-        .logo-title { font-size: 18px; font-weight: bold; color: #0f172a; }
-
-        /* Pano Konteyner */
-        .pano-container { display: flex; gap: 20px; flex-wrap: wrap; }
+        /* Sol Sidebar (TaskPano Panel Kenar Çubuğu) */
+        aside { width: 260px; background: #0f172a; color: #94a3b8; display: flex; flex-direction: column; border-right: 1px solid #1e293b; }
+        .sidebar-brand { padding: 20px; display: flex; align-items: center; gap: 12px; background: #1e293b; color: #fff; font-weight: 700; font-size: 16px; }
+        .sidebar-brand img { height: 32px; object-fit: contain; }
         
-        /* Sütunlar (Kanban / Task Pano) */
-        .pano-column { flex: 1; min-width: 280px; background: #fff; border: 1px solid #cbd5e1; border-radius: 4px; padding: 15px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
-        .pano-column h3 { font-size: 14px; background: #f8fafc; padding: 10px; color: #0284c7; border: 1px solid #e2e8f0; margin-bottom: 15px; border-left: 4px solid #0284c7; }
+        .sidebar-menu { padding: 20px 10px; display: flex; flex-direction: column; gap: 5px; }
+        .sidebar-menu a { display: flex; align-items: center; gap: 12px; padding: 12px 15px; color: #94a3b8; text-decoration: none; font-size: 14px; font-weight: 500; border-radius: 6px; transition: 0.2s; }
+        .sidebar-menu a:hover, .sidebar-menu a.active { background: #0284c7; color: #fff; }
 
-        /* Görev Kartları */
-        .task-card { background: #fdfdfd; border: 1px solid #e2e8f0; border-left: 3px solid #f59e0b; padding: 12px; margin-bottom: 10px; border-radius: 3px; font-size: 13px; }
-        .task-card.done { border-left-color: #10b981; }
-        .task-title { font-weight: bold; color: #1e293b; margin-bottom: 5px; }
-        .task-desc { color: #64748b; font-size: 12px; }
+        /* Sağ Ana Alan */
+        .main-content { flex: 1; display: flex; flex-direction: column; overflow-hidden; }
+        
+        /* Üst Header */
+        header { height: 60px; background: #ffffff; border-bottom: 1px solid #e2e8f0; display: flex; justify-content: space-between; align-items: center; padding: 0 30px; }
+        .header-title { font-size: 18px; font-weight: 700; color: #0f172a; display: flex; align-items: center; gap: 10px; }
+        .user-profile { display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 600; color: #475569; }
+        .user-profile i { font-size: 18px; color: #0284c7; }
 
-        /* Butonlar */
-        .btn { display: inline-block; padding: 6px 12px; background: #0284c7; color: #fff; text-decoration: none; font-size: 12px; border-radius: 3px; font-weight: bold; }
-        .btn:hover { background: #0369a1; }
+        /* Kanban / Pano Alanı */
+        .board-container { padding: 30px; display: flex; gap: 20px; flex: 1; overflow-x: auto; background: #f8fafc; }
+        
+        .board-column { width: 320px; background: #f1f5f9; border-radius: 8px; border: 1px solid #e2e8f0; display: flex; flex-direction: column; max-height: calc(100vh - 140px); }
+        .column-header { padding: 15px; font-size: 14px; font-weight: 700; color: #334155; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #e2e8f0; background: #fff; border-top-left-radius: 8px; border-top-right-radius: 8px; }
+        .column-badge { background: #e2e8f0; color: #475569; padding: 2px 8px; border-radius: 12px; font-size: 12px; }
+
+        .column-cards { padding: 15px; overflow-y: auto; display: flex; flex-direction: column; gap: 12px; }
+        
+        /* Görev Kartı */
+        .task-card { background: #ffffff; border: 1px solid #cbd5e1; border-radius: 6px; padding: 15px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); cursor: pointer; transition: transform 0.2s; }
+        .task-card:hover { transform: translateY(-2px); border-color: #0284c7; }
+        .task-title { font-size: 14px; font-weight: 600; color: #1e293b; margin-bottom: 8px; }
+        .task-desc { font-size: 12px; color: #64748b; margin-bottom: 12px; line-height: 1.4; }
+        .task-footer { display: flex; justify-content: space-between; align-items: center; font-size: 11px; color: #94a3b8; border-top: 1px solid #f1f5f9; pt-top: 8px; }
+        .task-tag { background: #e0f2fe; color: #0369a1; padding: 2px 6px; border-radius: 4px; font-weight: 600; }
     </style>
 </head>
 <body>
 
-    <!-- Üst Bar ve Logo -->
-    <div class="top-header">
-        <div class="logo-area">
-            <img src="{{ url_for('static', filename='logo.png') }}" alt="TaskMap Logo" onerror="this.style.display='none'">
-            <span class="logo-title">TEKNOMAP - TaskMap İş Takip Panosu</span>
+    <!-- Sol Panel (Sidebar) -->
+    <aside>
+        <div class="sidebar-brand">
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" onerror="this.style.display='none'">
+            <span>TaskPano</span>
         </div>
-        <div>
-            <a href="/login" class="btn">Giriş Yap</a>
-            <a href="/register" class="btn" style="background:#10b981;">Kayıt Ol</a>
+        <div class="sidebar-menu">
+            <a href="#" class="active"><i class="fa-solid fa-columns"></i> Proje Panosu</a>
+            <a href="#"><i class="fa-solid fa-list-check"></i> Görevlerim</a>
+            <a href="#"><i class="fa-solid fa-calendar-days"></i> Takvim</a>
+            <a href="#"><i class="fa-solid fa-users"></i> Çalışma Alanı</a>
+            <a href="#"><i class="fa-solid fa-chart-pie"></i> Raporlar</a>
+            <a href="/login"><i class="fa-solid fa-right-from-bracket"></i> Çıkış Yap</a>
         </div>
-    </div>
+    </aside>
 
-    <!-- Task Pano (İş Takip Listeleri) -->
-    <div class="pano-container">
+    <!-- Sağ Ana Ekran -->
+    <div class="main-content">
         
-        <!-- Bekleyenler -->
-        <div class="pano-column">
-            <h3>Bekleyen İşler / Görevler</h3>
-            <div class="task-card">
-                <div class="task-title">Yazılım Güncellemesi</div>
-                <div class="task-desc">Sunucu yedekleme modülü entegre edilecek.</div>
+        <!-- Üst Header -->
+        <header>
+            <div class="header-title">
+                <i class="fa-solid fa-layer-group" style="color: #0284c7;"></i> TEKNOMAP BİLGİSAYAR - Genel Proje Alanı
             </div>
-            <div class="task-card">
-                <div class="task-title">Ağ Kablolama Kontrolü</div>
-                <div class="task-desc">Ofis içi switch bağlantıları gözden geçirilecek.</div>
+            <div class="user-profile">
+                <i class="fa-solid fa-circle-user"></i> dervismirankurtbogan25@gmail.com
             </div>
-        </div>
+        </header>
 
-        <!-- Devam Edenler -->
-        <div class="pano-column" style="border-top-color: #3b82f6;">
-            <h3 style="color: #2563eb; border-left-color: #2563eb;">Devam Eden Süreçler</h3>
-            <div class="task-card" style="border-left-color: #3b82f6;">
-                <div class="task-title">Müşteri Randevu Planı</div>
-                <div class="task-desc">Haftalık randevu takvimi oluşturuluyor.</div>
+        <!-- Kanban Board (Task Pano Akışı) -->
+        <div class="board-container">
+            
+            <!-- Sütun 1: Yapılacaklar -->
+            <div class="board-column">
+                <div class="column-header">
+                    <span>Yapılacaklar (To Do)</span>
+                    <span class="column-badge">2</span>
+                </div>
+                <div class="column-cards">
+                    <div class="task-card">
+                        <div class="task-title">Yazılım Güncelleme Entegrasyonu</div>
+                        <div class="task-desc">Sunucu yedekleme modülü için API bağlantıları gözden geçirilecek.</div>
+                        <div class="task-footer">
+                            <span class="task-tag">Yazılım</span>
+                            <span><i class="fa-regular fa-clock"></i> Bugün</span>
+                        </div>
+                    </div>
+                    <div class="task-card">
+                        <div class="task-title">Ağ Altyapı Kontrolü</div>
+                        <div class="task-desc">Ofis içi switch ve kablolama düzeni test edilecek.</div>
+                        <div class="task-footer">
+                            <span class="task-tag">Donanım</span>
+                            <span><i class="fa-regular fa-clock"></i> Yarın</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
 
-        <!-- Tamamlananlar -->
-        <div class="pano-column" style="border-top-color: #10b981;">
-            <h3 style="color: #059669; border-left-color: #059669;">Tamamlanan İşler</h3>
-            <div class="task-card done">
-                <div class="task-title">Landing Page Tasarımı</div>
-                <div class="task-desc">Akınsoft kurumsal arayüz şablonu tamamlandı.</div>
+            <!-- Sütun 2: Devam Edenler -->
+            <div class="board-column">
+                <div class="column-header">
+                    <span>Devam Edenler (In Progress)</span>
+                    <span class="column-badge">1</span>
+                </div>
+                <div class="column-cards">
+                    <div class="task-card" style="border-left: 4px solid #0284c7;">
+                        <div class="task-title">Müşteri Randevu Planlaması</div>
+                        <div class="task-desc">Haftalık müşteri randevu takvimi sisteme işleniyor.</div>
+                        <div class="task-footer">
+                            <span class="task-tag" style="background:#fef3c7; color:#d97706;">Operasyon</span>
+                            <span><i class="fa-regular fa-clock"></i> Devam Ediyor</span>
+                        </div>
+                    </div>
+                </div>
             </div>
+
+            <!-- Sütun 3: Tamamlananlar -->
+            <div class="board-column">
+                <div class="column-header">
+                    <span>Tamamlananlar (Done)</span>
+                    <span class="column-badge">1</span>
+                </div>
+                <div class="column-cards">
+                    <div class="task-card" style="border-left: 4px solid #10b981;">
+                        <div class="task-title">TaskPano Arayüz Tasarımı</div>
+                        <div class="task-desc">Akınsoft tarzı kurumsal panolar kusursuz şekilde tasarlandı.</div>
+                        <div class="task-footer">
+                            <span class="task-tag" style="background:#d1fae5; color:#059669;">Tasarım</span>
+                            <span><i class="fa-solid fa-check" style="color:#10b981;"></i> Tamamlandı</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
     </div>
