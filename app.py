@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, redirect, url_for
 
 app = Flask(__name__)
 
@@ -8,11 +8,23 @@ def home():
 
 @app.route('/login')
 def login():
-    return "<h1 style='text-align:center; margin-top:50px; font-family:sans-serif;'>Giriş Yap Sayfası Yapım Aşamasında 🚀</h1>"
+    return """
+    <div style="font-family:sans-serif; text-align:center; padding-top:100px; background:#0f172a; color:#fff; height:100vh;">
+        <h2>TaskMap Güvenli Giriş Ekranı</h2>
+        <p style="color:#94a3b8; margin-top:10px;">Giriş modülü aktif ediliyor...</p>
+        <a href="/" style="display:inline-block; margin-top:20px; color:#38bdf8; text-decoration:none;">← Anasayfaya Dön</a>
+    </div>
+    """
 
 @app.route('/register')
 def register():
-    return "<h1 style='text-align:center; margin-top:50px; font-family:sans-serif;'>Üye Ol / Kayıt Sayfası Yapım Aşamasında 🚀</h1>"
+    return """
+    <div style="font-family:sans-serif; text-align:center; padding-top:100px; background:#0f172a; color:#fff; height:100vh;">
+        <h2>TaskMap Hesap Oluşturma Sihirbazı</h2>
+        <p style="color:#94a3b8; margin-top:10px;">Kayıt formu hazırlanıyor...</p>
+        <a href="/" style="display:inline-block; margin-top:20px; color:#38bdf8; text-decoration:none;">← Anasayfaya Dön</a>
+    </div>
+    """
 
 if __name__ == '__main__':
     app.run(debug=True)
