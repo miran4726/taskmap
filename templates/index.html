@@ -3,52 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TaskMap - Profesyonel İş ve Proje Takip Yazılımı</title>
-    <!-- Google Fonts ve Font Awesome -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>TaskMap - Kurumsal İş ve Proje Yönetim Sistemi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Genel Stil */
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
-        body { background-color: #f4f7fa; color: #334155; overflow-x: hidden; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Arial, sans-serif; }
+        body { background-color: #ffffff; color: #333333; }
 
-        /* Header (Kurumsal Stil) */
-        header {
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 15px 7%; background: #ffffff; border-bottom: 1px solid #e2e8f0;
-            position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        /* Akınsoft Tarzı Üst Kurumsal Header */
+        header { 
+            display: flex; justify-content: space-between; align-items: center; 
+            padding: 12px 8%; background: #ffffff; border-bottom: 3px solid #0056b3; 
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000;
         }
-        .logo-container { display: flex; align-items: center; text-decoration: none; }
-        .logo-container img { height: 50px; object-fit: contain; }
+        .logo-container img { height: 45px; object-fit: contain; }
 
-        nav { display: flex; gap: 30px; align-items: center; }
-        nav a { text-decoration: none; color: #475569; font-weight: 600; font-size: 14px; transition: color 0.2s; }
-        nav a:hover { color: #0284c7; }
+        nav { display: flex; gap: 25px; align-items: center; }
+        nav a { text-decoration: none; color: #0056b3; font-weight: 600; font-size: 15px; transition: color 0.2s; }
+        nav a:hover { color: #003d82; text-decoration: underline; }
 
-        .auth-group { display: flex; gap: 12px; align-items: center; }
-        .btn-outline { padding: 9px 18px; border: 2px solid #0284c7; color: #0284c7; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 14px; transition: all 0.2s; }
-        .btn-outline:hover { background: #f0f9ff; }
-        .btn-solid { padding: 10px 20px; background: #0284c7; color: white; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 14px; box-shadow: 0 4px 12px rgba(2, 132, 199, 0.25); transition: background 0.2s; }
-        .btn-solid:hover { background: #0369a1; }
+        .auth-buttons { display: flex; gap: 10px; align-items: center; }
+        .btn { padding: 8px 18px; border-radius: 4px; text-decoration: none; font-weight: 600; font-size: 14px; cursor: pointer; }
+        .btn-outline { border: 1px solid #0056b3; color: #0056b3; background: #fff; }
+        .btn-outline:hover { background: #f0f4f8; }
+        .btn-solid { background: #0056b3; color: #fff; border: 1px solid #0056b3; }
+        .btn-solid:hover { background: #003d82; }
 
-        /* Hero Bölümü */
-        .hero { display: flex; justify-content: space-between; align-items: center; padding: 80px 7%; background: linear-gradient(135deg, #ffffff 0%, #e0f2fe 100%); border-bottom: 1px solid #cbd5e1; }
-        .hero-content { max-width: 600px; }
-        .hero-tag { display: inline-block; background: #e0f2fe; color: #0369a1; padding: 6px 14px; border-radius: 20px; font-weight: 700; font-size: 13px; margin-bottom: 20px; }
-        .hero h1 { font-size: 44px; font-weight: 800; line-height: 1.2; color: #0f172a; margin-bottom: 20px; }
-        .hero h1 span { color: #0284c7; }
-        .hero p { font-size: 17px; color: #475569; margin-bottom: 30px; line-height: 1.6; }
+        /* Ferah Hero Bölümü */
+        .hero { 
+            display: flex; justify-content: space-between; align-items: center; 
+            padding: 70px 8%; background-color: #f8f9fa; border-bottom: 1px solid #e9ecef; 
+        }
+        .hero-text { max-width: 600px; }
+        .hero-text h1 { color: #0056b3; font-size: 38px; font-weight: 700; margin-bottom: 15px; line-height: 1.3; }
+        .hero-text p { color: #555555; font-size: 16px; line-height: 1.6; margin-bottom: 25px; }
 
-        .hero-card-panel { background: #ffffff; border: 1px solid #cbd5e1; border-radius: 12px; padding: 25px; width: 450px; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05); }
-        .task-item { background: #f8fafc; border: 1px solid #e2e8f0; padding: 12px; border-radius: 6px; margin-bottom: 10px; font-size: 14px; font-weight: 500; display: flex; justify-content: space-between; }
-        .tag-todo { color: #d97706; background: #fef3c7; padding: 2px 8px; border-radius: 4px; font-size: 12px; }
-        .tag-done { color: #059669; background: #d1fae5; padding: 2px 8px; border-radius: 4px; font-size: 12px; }
+        /* Özet Modül Paneli */
+        .hero-panel { 
+            background: #ffffff; border: 1px solid #ced4da; border-top: 4px solid #0056b3; 
+            border-radius: 6px; padding: 25px; width: 400px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); 
+        }
+        .hero-panel h3 { font-size: 16px; color: #333; margin-bottom: 15px; border-bottom: 1px solid #eee; padding-bottom: 8px; }
+        .panel-row { display: flex; justify-content: space-between; padding: 8px 0; font-size: 14px; border-bottom: 1px dashed #f1f3f5; }
+        .badge-active { color: #2b8a3e; font-weight: 600; background: #ebfbee; padding: 2px 8px; border-radius: 4px; }
 
-        /* Footer */
-        footer { background: #0f172a; color: #94a3b8; padding: 40px 7%; text-align: center; border-top: 1px solid #1e293b; }
+        /* Alt Bilgi (Footer) */
+        footer { background: #1a1a1a; color: #adb5bd; padding: 25px 8%; text-align: center; font-size: 13px; }
         footer strong { color: #ffffff; }
-
-        @media(max-width: 900px) { .hero { flex-direction: column; gap: 40px; } .hero-card-panel { width: 100%; } }
     </style>
 </head>
 <body>
@@ -59,40 +59,35 @@
             <img src="{{ url_for('static', filename='logo.png') }}" alt="TaskMap Logo">
         </a>
         <nav>
-            <a href="#">Anasayfa</a>
+            <a href="/">Anasayfa</a>
             <a href="#">Özellikler</a>
+            <a href="#">Çözümler</a>
             <a href="#">İletişim</a>
         </nav>
-        <div class="auth-group">
-            <a href="/login" class="btn-outline">Giriş Yap</a>
-            <a href="/register" class="btn-solid">Ücretsiz Başla</a>
+        <div class="auth-buttons">
+            <a href="/login" class="btn btn-outline">Giriş Yap</a>
+            <a href="/register" class="btn btn-solid">Kayıt Ol</a>
         </div>
     </header>
 
-    <!-- Hero Bölümü -->
+    <!-- Hero Alanı -->
     <section class="hero">
-        <div class="hero-content">
-            <span class="hero-tag">Kurumsal İş ve Proje Yönetimi</span>
-            <h1>İşlerinizi ve Projelerinizi <span>Tek Noktadan</span> Yönetin</h1>
-            <p>Kanban mimarisi, akıllı görev atamaları ve gelişmiş raporlama araçlarıyla işletmenizin verimliliğini artırın.</p>
-            <a href="/register" class="btn-solid" style="padding: 12px 24px; font-size: 15px;">Hemen Keşfet</a>
+        <div class="hero-text">
+            <h1>İş Süreçlerinizi ve Projelerinizi Tek Merkezden Yönetin</h1>
+            <p>TaskMap; işletmenizin tüm iş takibi, randevu ve operasyonel süreçlerini kusursuz bir şekilde organize etmenizi sağlayan yeni nesil yazılım çözümüdür.</p>
+            <a href="/register" class="btn btn-solid" style="padding: 10px 24px; font-size: 15px;">Hemen Başlayın</a>
         </div>
-        <div class="hero-card-panel">
-            <h4><i class="fa-solid fa-chart-line" style="color:#0284c7; margin-right:8px;"></i> Canlı İş Takip Paneli</h4>
-            <div class="task-item">
-                <span>Yazılım Güncellemesi Yapılacak</span>
-                <span class="tag-todo">Beklemede</span>
-            </div>
-            <div class="task-item">
-                <span>Müşteri Randevuları Planlandı</span>
-                <span class="tag-done">Tamamlandı</span>
-            </div>
+        <div class="hero-panel">
+            <h3>Sistem Durum Özeti</h3>
+            <div class="panel-row"><span>Aktif Modüller:</span> <strong>Tamamen Hazır</strong></div>
+            <div class="panel-row"><span>Veritabanı Bağlantısı:</span> <span class="badge-active">Çevrimiçi</span></div>
+            <div class="panel-row"><span>Lisans Durumu:</span> <strong>Kurumsal Sürüm</strong></div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <p>Copyright &copy; 2005 – 2026 <strong>TEKNOMAP BİLGİSAYAR</strong> | Tüm hakları saklıdır.</p>
+        <p>Copyright &copy; 2026 <strong>TEKNOMAP BİLGİSAYAR</strong> | Tüm hakları saklıdır.</p>
     </footer>
 
 </body>
