@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-        body { background-color: #f0f4f8; color: #1e293b; }
+        body { background-color: #f0f4f8; color: #1e293b; overflow-x: hidden; }
 
         /* Üst Menü Header */
         header { 
@@ -30,16 +30,25 @@
         .btn-solid { background: #004080; color: #fff; border: 1px solid #004080; }
         .btn-solid:hover { background: #002b5c; }
 
-        /* Hero Alanı */
+        /* Hero Alanı (Görsel Zenginlik Katılmış Versiyon) */
         .hero { 
             display: flex; justify-content: space-between; align-items: center; 
-            padding: 70px 8%; background: linear-gradient(180deg, #e2e8f0 0%, #f0f4f8 100%); gap: 40px;
+            padding: 70px 8%; background: linear-gradient(180deg, #e2e8f0 0%, #f0f4f8 100%); gap: 30px;
         }
-        .hero-content { max-width: 550px; }
+        .hero-content { max-width: 520px; }
         .hero-content h1 { font-size: 38px; color: #0f172a; font-weight: 700; margin-bottom: 15px; line-height: 1.2; }
         .hero-content p { font-size: 16px; color: #475569; margin-bottom: 25px; line-height: 1.5; }
+
+        /* Orijinal Sitedeki Gibi Görsel Kanban Önizleme Alanı */
+        .hero-preview-box { background: #ffffff; border-radius: 12px; padding: 20px; box-shadow: 0 15px 35px rgba(0,0,0,0.08); width: 550px; border: 1px solid #cbd5e1; position: relative; }
+        .preview-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #e2e8f0; padding-bottom: 10px; margin-bottom: 12px; font-size: 12px; color: #64748b; }
+        .preview-columns { display: flex; gap: 10px; }
+        .p-col { flex: 1; background: #f8fafc; border-radius: 6px; padding: 10px; border: 1px solid #e2e8f0; }
+        .p-col-title { font-size: 11px; font-weight: bold; color: #334155; margin-bottom: 8px; display: flex; justify-content: space-between; }
+        .p-card { background: #fff; padding: 8px; border-radius: 4px; font-size: 11px; border: 1px solid #e2e8f0; margin-bottom: 6px; box-shadow: 0 1px 2px rgba(0,0,0,0.02); }
         
-        .hero-card { background: #fff; padding: 25px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.06); width: 450px; border: 1px solid #e2e8f0; }
+        .floating-badge { position: absolute; background: #dc2626; color: #fff; padding: 4px 10px; border-radius: 20px; font-size: 11px; font-weight: bold; bottom: -15px; right: 40px; box-shadow: 0 4px 10px rgba(220,38,38,0.3); }
+        .floating-badge-green { position: absolute; background: #10b981; color: #fff; padding: 4px 10px; border-radius: 20px; font-size: 11px; font-weight: bold; top: -15px; right: 20px; box-shadow: 0 4px 10px rgba(16,185,129,0.3); }
 
         /* 3 Adımda Başlayın Bölümü */
         .steps-section { padding: 60px 8%; text-align: center; background: #ffffff; }
@@ -50,7 +59,7 @@
         .step-box h3 { font-size: 17px; color: #0f172a; margin-bottom: 8px; }
         .step-box p { font-size: 13px; color: #64748b; line-height: 1.5; }
 
-        /* Özellikler Grid Bölümü (Gelen Görseldeki Tam Metinlerle) */
+        /* Özellikler Grid Bölümü */
         .features-section { padding: 70px 8%; background: #f0f4f8; text-align: center; }
         .features-section h2 { font-size: 26px; color: #0f172a; margin-bottom: 40px; }
         .feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; text-align: left; }
@@ -59,7 +68,7 @@
         .feature-card h4 { font-size: 16px; color: #0f172a; margin-bottom: 8px; }
         .feature-card p { font-size: 13px; color: #64748b; line-height: 1.5; }
 
-        /* Yeni Eklenen: Hızlı ve Kolay Proje Takibi Bölümü */
+        /* Hızlı ve Kolay Proje Takibi Bölümü */
         .efficiency-section { padding: 70px 8%; background: #eef2f7; text-align: center; border-top: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0; }
         .efficiency-section h2 { font-size: 26px; color: #0f172a; margin-bottom: 40px; }
         .efficiency-showcase { display: flex; justify-content: center; align-items: center; gap: 30px; flex-wrap: wrap; margin-bottom: 40px; }
@@ -107,27 +116,40 @@
         </div>
     </header>
 
-    <!-- Hero Alanı -->
+    <!-- Hero Alanı (Zenginleştirilmiş Kanban Görsel Paneliyle) -->
     <section class="hero">
         <div class="hero-content">
             <h1>TaskMap: İş, Görev ve Proje Takip Yazılımı</h1>
             <p>Kanban prensipleriyle işlerinizi, görevlerinizi ve projelerinizi organize edin, Teknomap altyapısıyla verimliliğinizi zirveye çıkarın.</p>
-            <div style="display: flex; gap: 15px;">
+            <div style="display: flex; gap: 15px; align-items: center;">
                 <a href="/login" class="btn btn-solid">Ücretsiz Başla <i class="fa-solid fa-arrow-right"></i></a>
-                <a href="/login" class="btn btn-outline" style="background:#fff;">Yönetim Paneli</a>
+                <a href="/login" style="color: #004080; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 6px;"><i class="fa-regular fa-circle-play fa-lg"></i> Tanıtım İzle</a>
             </div>
         </div>
-        <div class="hero-card">
-            <div style="font-weight: 700; color: #0f172a; margin-bottom: 12px; font-size: 15px; display: flex; align-items: center; gap: 8px;">
-                <i class="fa-solid fa-chart-line" style="color: #004080;"></i> Canlı İş Akışı Önizlemesi
+
+        <!-- Sağ Taraftaki Detaylı Kanban Önizleme Kutusu -->
+        <div class="hero-preview-box">
+            <div class="floating-badge">Yüksek Öncelikli</div>
+            <div class="floating-badge-green">Düşük Öncelikli</div>
+            
+            <div class="preview-header">
+                <span>Tekno Proje / Ekip Panosu</span>
+                <span><i class="fa-solid fa-sliders"></i></span>
             </div>
-            <div style="background: #f8fafc; padding: 12px; border-radius: 6px; font-size: 13px; border: 1px solid #e2e8f0; margin-bottom: 8px; border-left: 4px solid #004080;">
-                <strong>Yazılım Güncelleme Modülü</strong>
-                <div style="color: #64748b; font-size: 12px; margin-top: 2px;"><i class="fa-regular fa-clock"></i> Beklemede / Öncelikli</div>
-            </div>
-            <div style="background: #f8fafc; padding: 12px; border-radius: 6px; font-size: 13px; border: 1px solid #e2e8f0; border-left: 4px solid #10b981;">
-                <strong>Müşteri Randevu Takvimi</strong>
-                <div style="color: #10b981; font-size: 12px; margin-top: 2px;"><i class="fa-solid fa-check"></i> Tamamlandı</div>
+            <div class="preview-columns">
+                <div class="p-col">
+                    <div class="p-col-title"><span>Yapılacak</span> <span>2</span></div>
+                    <div class="p-card"><strong>Hat Dengeleme</strong><br><span style="color:#64748b;">10 Kas 2026</span></div>
+                    <div class="p-card"><strong>Sunucu Optimizasyonu</strong><br><span style="color:#64748b;">Teknomap Altyapı</span></div>
+                </div>
+                <div class="p-col">
+                    <div class="p-col-title"><span>Yapılıyor</span> <span>1</span></div>
+                    <div class="p-card" style="border-left: 3px solid #004080;"><strong>Süreçlerin Optimize Edilmesi</strong><br><span style="color:#004080;">Devam ediyor...</span></div>
+                </div>
+                <div class="p-col">
+                    <div class="p-col-title"><span>Tamamlanan</span> <span>3</span></div>
+                    <div class="p-card" style="border-left: 3px solid #10b981;"><strong>Rapor Analizi</strong></div>
+                </div>
             </div>
         </div>
     </section>
@@ -154,7 +176,7 @@
         </div>
     </section>
 
-    <!-- Özellikler Izgarası (Gelen Görseldeki Metinler) -->
+    <!-- Özellikler Izgarası -->
     <section class="features-section" id="features">
         <h2>Kullanımı, Benimsenmesi ve Sevilmesi Kolay Bir Araç</h2>
         <div class="feature-grid">
@@ -191,7 +213,7 @@
         </div>
     </section>
 
-    <!-- Yeni Eklenen Bölüm: Hızlı ve Kolay Proje Takibi ile Maksimum Verim -->
+    <!-- Hızlı ve Kolay Proje Takibi Bölümü -->
     <section class="efficiency-section">
         <h2>Hızlı ve Kolay Proje Takibi ile Maksimum Verim</h2>
         <div class="efficiency-showcase">
