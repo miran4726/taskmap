@@ -17,18 +17,17 @@
                 <span class="text-xl font-extrabold tracking-tight text-white">Task<span class="text-indigo-500">Map</span></span>
             </div>
             <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-300">
-                <a href="#" onclick="showHome()" class="hover:text-indigo-400 transition">Özellikler</a>
-                <a href="#" class="hover:text-indigo-400 transition">Çözümler</a>
-                <a href="#" class="hover:text-indigo-400 transition">Fiyatlandırma</a>
+                <a href="#" onclick="showHome()" class="hover:text-indigo-400 transition">Ana Sayfa</a>
+                <a href="#" class="hover:text-indigo-400 transition">Özellikler</a>
             </nav>
             <div class="flex items-center space-x-4">
-                <button onclick="showLogin()" class="text-sm font-medium text-slate-300 hover:text-white transition cursor-pointer">Giriş Yap</button>
-                <button onclick="showLogin()" class="bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-semibold px-4 py-2 rounded-xl transition shadow-lg shadow-indigo-600/20 cursor-pointer">Ücretsiz Başla</button>
+                <button onclick="showLogin()" class="text-sm font-medium text-slate-300 hover:text-white transition">Giriş Yap</button>
+                <button onclick="showLogin()" class="bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-semibold px-4 py-2 rounded-xl transition shadow-lg shadow-indigo-600/20">Ücretsiz Başla</button>
             </div>
         </div>
     </header>
 
-    <!-- Main Content Area -->
+    <!-- Main Content Area (Dynamic Switcher) -->
     <main class="flex-grow flex items-center justify-center px-4 sm:px-6 lg:px-8 py-16">
         
         <!-- ANA SAYFA GÖRÜNÜMÜ -->
@@ -47,10 +46,10 @@
             </p>
             
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-                <button onclick="showLogin()" class="w-full sm:w-auto bg-indigo-600 hover:bg-indigo-500 text-white font-semibold px-8 py-3.5 rounded-xl transition shadow-xl shadow-indigo-600/30 text-center cursor-pointer">
+                <button onclick="showLogin()" class="w-full sm:w-auto bg-indigo-600 hover:bg-indigo-500 text-white font-semibold px-8 py-3.5 rounded-xl transition shadow-xl shadow-indigo-600/30 text-center">
                     Hemen Keşfet
                 </button>
-                <button onclick="showLogin()" class="w-full sm:w-auto bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold px-8 py-3.5 rounded-xl transition border border-slate-700 text-center cursor-pointer">
+                <button onclick="showLogin()" class="w-full sm:w-auto bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold px-8 py-3.5 rounded-xl transition border border-slate-700 text-center">
                     Giriş Yap
                 </button>
             </div>
@@ -77,13 +76,13 @@
                     <input type="password" required class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-slate-100 placeholder-slate-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition" placeholder="••••••••">
                 </div>
 
-                <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-semibold py-3.5 rounded-xl transition shadow-lg shadow-indigo-600/30 text-center mt-2 cursor-pointer">
+                <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-semibold py-3.5 rounded-xl transition shadow-lg shadow-indigo-600/30 text-center mt-2">
                     Giriş Yap
                 </button>
             </form>
 
             <div class="text-center text-xs text-slate-500">
-                Ana sayfaya dönmek mi istiyorsun? <button onclick="showHome()" class="text-indigo-400 font-medium hover:underline cursor-pointer">Tıkla</button>
+                Ana sayfaya dönmek mi istiyorsun? <button onclick="showHome()" class="text-indigo-400 font-medium hover:underline">Tıkla</button>
             </div>
         </div>
 
