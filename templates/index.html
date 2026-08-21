@@ -2,37 +2,62 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TaskMap - İş Takip Yazılımı</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>TaskMap - İş, Görev ve Proje Takip Yazılımı</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-        body { background-color: #f8fafc; color: #1e293b; line-height: 1.6; }
-        header { padding: 20px 10%; background: white; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #e2e8f0; }
-        .hero { padding: 80px 10%; text-align: center; }
-        h1 { font-size: 48px; color: #0f172a; margin-bottom: 20px; }
-        .btn-play { display: inline-block; padding: 12px 30px; background: #004080; color: white; text-decoration: none; border-radius: 8px; font-weight: 600; margin-top: 20px; }
+        body { background-color: #f0f4f8; color: #1e293b; overflow-x: hidden; scroll-behavior: smooth; }
+        header { display: flex; justify-content: space-between; align-items: center; padding: 15px 8%; background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; }
+        .logo-area { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+        .logo-text { font-size: 20px; font-weight: 700; color: #004080; }
+        nav { display: flex; gap: 25px; align-items: center; }
+        nav a { text-decoration: none; color: #475569; font-size: 14px; font-weight: 500; }
+        .auth-buttons { display: flex; gap: 10px; }
+        .btn { padding: 8px 18px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 14px; display: inline-flex; align-items: center; gap: 8px; }
+        .btn-outline { border: 1px solid #cbd5e1; color: #1e293b; background: #fff; }
+        .btn-solid { background: #004080; color: #fff; border: 1px solid #004080; }
+        .hero { display: flex; justify-content: space-between; align-items: center; padding: 70px 8%; background: linear-gradient(180deg, #e2e8f0 0%, #f0f4f8 100%); gap: 30px; }
+        .hero-content { max-width: 520px; }
+        .hero-content h1 { font-size: 38px; color: #0f172a; margin-bottom: 15px; }
         
-        #video-section { margin-top: 50px; display: flex; justify-content: center; }
-        video { width: 80%; max-width: 800px; border-radius: 15px; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1); background: #000; }
+        /* Video Kutusu */
+        .hero-preview-box { background: #000; border-radius: 12px; width: 550px; height: 320px; box-shadow: 0 15px 35px rgba(0,0,0,0.15); border: 1px solid #cbd5e1; overflow: hidden; }
+        .hero-preview-box video { width: 100%; height: 100%; object-fit: cover; }
     </style>
 </head>
 <body>
 
     <header>
-        <div style="font-size: 24px; font-weight: 700; color: #004080;">TaskMap</div>
+        <a href="/" class="logo-area">
+            <span class="logo-text">TaskMap</span>
+        </a>
+        <nav>
+            <a href="/">Anasayfa</a>
+            <a href="#features">Özellikler</a>
+            <a href="#">Fiyatlandırma</a>
+            <a href="#">İletişim</a>
+        </nav>
+        <div class="auth-buttons">
+            <a href="/login" class="btn btn-outline">Giriş Yap</a>
+            <a href="/login" class="btn btn-solid">Ücretsiz Başla</a>
+        </div>
     </header>
 
     <section class="hero">
-        <h1>İşlerinizi Kolayca Takip Edin</h1>
-        <p>Proje yönetiminizi modernize edin ve verimliliğinizi artırın.</p>
-        
-        <a href="#video-section" class="btn-play">Tanıtım İzle</a>
+        <div class="hero-content">
+            <h1>TaskMap: İş, Görev ve Proje Takip Yazılımı</h1>
+            <p>Kanban prensipleriyle işlerinizi organize edin, verimliliğinizi zirveye çıkarın.</p>
+            <div style="margin-top: 25px; display: flex; gap: 15px; align-items: center;">
+                <a href="/login" class="btn btn-solid">Ücretsiz Başla</a>
+                <a href="#video-section" style="color: #004080; text-decoration: none; font-weight: 600;"><i class="fa-regular fa-circle-play fa-lg"></i> Tanıtım İzle</a>
+            </div>
+        </div>
 
-        <div id="video-section">
-            <video controls>
+        <!-- Video Alanı -->
+        <div id="video-section" class="hero-preview-box">
+            <video autoplay muted loop playsinline>
                 <source src="{{ url_for('static', filename='videos/taskmap_tanitim.mp4') }}" type="video/mp4">
-                Tarayıcınız video etiketini desteklemiyor.
             </video>
         </div>
     </section>
